@@ -13,6 +13,7 @@ import (
 var DB *sql.DB
 
 func ConnectDatabase() {
+	//Load .env file using godotenv module, and use it as varibles value
 	err := godotenv.Load("./local.env")
 	if err != nil {
 		fmt.Println("Error loading.env file")
@@ -23,6 +24,7 @@ func ConnectDatabase() {
 	dbhost := os.Getenv("DBHOST")
 	dbpass := os.Getenv("DBPASS")
 
+	//Initate database connecton and store the session
 	db, err := sql.Open("mysql", dbuser+":"+dbpass+"@tcp("+dbhost+":3306)/"+dbname)
 	if err != nil {
 		fmt.Println("Err", err.Error())

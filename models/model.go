@@ -1,5 +1,6 @@
 package models
 
+// Create a new type that corresponds with table fields for database operations tasks
 type Peoples struct {
 	ID         int    `json:"ID"`
 	First_name string `json:"first_name"`

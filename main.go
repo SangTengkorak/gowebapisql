@@ -11,6 +11,7 @@ import (
 )
 
 func main() {
+	//Initiate GIN package to route web URL to functions
 	controllers.ConnectDatabase()
 	router := gin.Default()
 	router.GET("/peoples", listpeoplesHandler)
@@ -21,6 +22,7 @@ func main() {
 	router.Run("localhost:8090")
 }
 
+// Functions that capture json values in webrequest and send it to models functions
 func listpeoplesHandler(c *gin.Context) {
 	peoples1 := models.ListPeoplesHandler()
 	if peoples1 == nil || len(peoples1) == 0 {
