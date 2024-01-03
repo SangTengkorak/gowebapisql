@@ -19,7 +19,8 @@ func main() {
 	router.POST("/peoples/create", createpeoplesHandler)
 	router.POST("/peoples/del/:id", deletepeoplesHandler)
 	router.POST("/peoples/upd/:id", updatepeoplesHandler)
-	router.Run("localhost:8090")
+	//Set to "localhost" if it run not as container image
+	router.Run("0.0.0.0:8090")
 }
 
 // Functions that capture json values in webrequest and send it to models functions
