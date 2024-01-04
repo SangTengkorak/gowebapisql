@@ -2,7 +2,7 @@ version: "2"
 
 services:
   gowebapi:
-    image: "sangtengkorak/mastenk_pplgawad:v2.1"
+    image: "sangtengkorak/mastenk_pplgawad:v2.2"
     container_name: "peopledb-goweb"
     restart: "unless-stopped"
     depends_on:
