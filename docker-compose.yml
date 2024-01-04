@@ -1,0 +1,26 @@
+version: "2"
+
+services:
+  gowebapi:
+    image: "sangtengkorak/mastenk_pplgawad:v2.1"
+    container_name: "peopledb-goweb"
+    restart: "unless-stopped"
+    depends_on:
+      - mariadb
+    ports:
+      - "8090:8090"
+    links:
+      - mariadb
+
+  mariadb:
+    image: "mariadb:latest"
+    container_name: "lab-mariadb"
+    restart: "unless-stopped"
+    volumes:
+      - "/home/mastengkorak/Documents/Datalab:/var/lib/mysql:Z"
+    env_file:
+      - compose.env
+
+networks:
+  serabutan:
+    external: true

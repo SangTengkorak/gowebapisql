@@ -1,0 +1,19 @@
+FROM golang:alpine as build
+
+WORKDIR /app
+
+COPY go.mod ./
+
+RUN go mod download
+
+COPY . ./
+
+RUN go build -o /mastenk_pplgawad
+
+COPY . ./
+
+RUN go build -o /mastenk_pplgawad
+
+EXPOSE 8090
+
+CMD /mastenk_pplgawad
