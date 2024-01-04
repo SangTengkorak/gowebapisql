@@ -1,5 +1,24 @@
 This project is based on this tutorial: https://medium.com/@abhishekkushwaha11998/go-building-api-with-mysql-and-gin-d5a8ef70348f
 
+Database setup:
+
+CREATE DATABASE IF NOT EXISTS labdata;
+USE labdata;
+
+CREATE TABLE peoples (
+    id int(6) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    first_name varchar(50),
+    last_name varchar(50),
+    birth_year int(4),
+    email varchar(100)
+);
+
+CREATE USER 'mastengkorak'@'%' IDENTIFIED BY 'tengkorak123';
+
+GRANT CREATE, ALTER, DROP, INSERT, UPDATE, DELETE, SELECT, REFERENCES, RELOAD on *.* TO 'mastengkorak'@'%' WITH GRANT OPTION;
+
+FLUSH PRIVILEGES;
+
 Few operational tasks:
 
 ++Create people Send Request
